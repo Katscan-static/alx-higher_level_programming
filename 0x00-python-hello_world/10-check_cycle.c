@@ -25,7 +25,7 @@ int check_cycle(listint_t *head)
 		hare = hare->next->next;
 		if (tort == hare)
 			return (1);
-		if (!tort || !hare)
+		if (!hare)
 			return (0);
 	}
 
