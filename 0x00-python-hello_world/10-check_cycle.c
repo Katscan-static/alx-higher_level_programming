@@ -19,15 +19,14 @@ int check_cycle(listint_t *head)
 	tort = head;
 	hare = head;
 
-	while (1)
-	{
+	do {
 		tort = tort->next;
 		hare = hare->next->next;
 		if (tort == hare)
 			return (1);
 		if (!hare)
 			return (0);
-	}
+	} while (tort != hare);
 
 	return (0);
 }
