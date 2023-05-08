@@ -10,23 +10,17 @@
  */
 int check_cycle(listint_t *head)
 {
-	listint_t *tort = NULL;
-	listint_t *hare = NULL;
+	listint_t *tort = head;
+	listint_t *hare = head;
 
-	if (!head || !(head->next))
-		return (0);
 
-	tort = head;
-	hare = head;
-
-	do {
+	while (tort && hare && hare->next)
+	{
 		tort = tort->next;
 		hare = hare->next->next;
 		if (tort == hare)
 			return (1);
-		if (!hare)
-			return (0);
-	} while (tort != hare);
+	}
 
 	return (0);
 }
