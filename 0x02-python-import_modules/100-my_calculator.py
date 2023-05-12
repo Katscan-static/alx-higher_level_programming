@@ -5,7 +5,6 @@ if __name__ == "__main__":
     len_av = len(sys.argv)
     a = 0
     b = 0
-    print(len_av)
     if len_av != 4:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         sys.exit(1)
