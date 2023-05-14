@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
-    import importlib
-    vr = "./variable_load_5.py"
-    module = importlib.import_module("variable_load_5", vr)
-    a = module.a
+    import variable_load_5 as vl5
+    a = vl5.a
     print(a)
