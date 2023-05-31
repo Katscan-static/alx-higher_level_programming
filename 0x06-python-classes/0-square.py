@@ -1,7 +1,13 @@
 #!/usr/bin/python3
+
+"""
+    this model represents a square
+"""
+
+
 class Square:
     """
-    
+
     this class represents a square
 
     Attributes:
