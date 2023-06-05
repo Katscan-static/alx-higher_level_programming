@@ -43,7 +43,6 @@ class Rectangle:
         """
         return "Rectangle({}, {})".format(self.width, self.height)
 
-
     @property
     def width(self):
         """
