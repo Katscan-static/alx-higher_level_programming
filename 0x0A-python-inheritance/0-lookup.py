@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 def lookup(obj):
     """
         A funtion that return the attributes of a function.
@@ -9,4 +8,4 @@ def lookup(obj):
 
         Returns: a dictionary of all attributes
     """
-    return obj.__dict__
+    return dir(obj)
