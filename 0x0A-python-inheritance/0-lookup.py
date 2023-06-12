@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+    A module that returns the list of all available
+    * Attributes
+    * methods
+"""
 def lookup(obj):
     """
         A funtion that return the attributes of a function.
