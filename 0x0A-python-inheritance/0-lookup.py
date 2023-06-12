@@ -4,6 +4,8 @@
     * Attributes
     * methods
 """
+
+
 def lookup(obj):
     """
         A funtion that return the attributes of a function.
