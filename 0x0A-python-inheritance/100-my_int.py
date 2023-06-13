@@ -19,11 +19,9 @@ class MyInt(int):
 
         return super().__ne__(other)
 
-
     def __ne__(self, other):
         """
             A method that changes != to ==
         """
 
         return super().__eq__(other)
-
