@@ -121,6 +121,13 @@ class TestRectangle(unittest.TestCase):
         sys.stdout = sys.__stdout__
         self.assertEqual(test_out_val, "[Rectangle] (89) 10/10 - 10/10")
 
+        r1.update(x=1, height=2, y=3, width=4)
+        sys.stdout = test_out
+        print(r1)
+        test_out_val = test_out.getvalue().strip()
+        sys.stdout = sys.__stdout__
+        self.assertEqual(test_out_val, "[Rectangle] (89) 1/3 - 2/4")
+
     def Test_co_ord_display(self):
         """
             test co-ordinate display
