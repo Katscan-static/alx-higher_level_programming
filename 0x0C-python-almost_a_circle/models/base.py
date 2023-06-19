@@ -4,6 +4,9 @@ Base class of the project
 """
 
 
+import json
+
+
 class Base:
     """
     base class
@@ -31,7 +34,7 @@ class Base:
             returns json string representation of string
         """
 
-        if list_dictionary is None or list_dictionary = []:
+        if list_dictionary is None or list_dictionary == []:
             return "[]"
         else:
             return json.dumps(list_dictionary)
