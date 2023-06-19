@@ -28,6 +28,16 @@ class Square(Rectangle):
                                                  self.y,
                                                  self.width)
 
+    def to_dictionary(self):
+        """
+             returns dict representation
+        """
+
+        return {"id": self.id,
+                "x": self.x,
+                "size": self.size,
+                "y": self.y}
+
     def update(self, *args, **kwargs):
         """
             updates the Square instance
