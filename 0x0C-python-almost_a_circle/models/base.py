@@ -24,3 +24,14 @@ class Base:
             self.id = self.__class__.__nb_objects
         else:
             self.id = id
+
+    @staticmethod
+    def to_json_string(list_dictionary):
+        """
+            returns json string representation of string
+        """
+
+        if list_dictionary is None or list_dictionary = []:
+            return "[]"
+        else:
+            return json.dumps(list_dictionary)
