@@ -54,6 +54,17 @@ class Rectangle(Base):
                                                        self.__width,
                                                        self.__height)
 
+    def to_dictionary(self):
+        """
+            Returns a dictionary
+        """
+
+        return {"x": self.x,
+                "y": self.y,
+                "id": self.id,
+                "height": self.height,
+                "width": self.width}
+
     def update(self, *args, **kwargs):
         """
             update the instance
