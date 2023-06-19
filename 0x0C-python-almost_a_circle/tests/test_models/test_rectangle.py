@@ -101,6 +101,25 @@ class TestRectangle(unittest.TestCase):
         expected_out = "##\n##\n##"
         self.assertEqual(actual_output, expected_out)
 
+    def Test_str(self):
+        """
+            this tests the str function
+        """
+        r1 = Rectangle(4, 6, 2, 1, 12)
+        test_out = StringIO()
+        sys.stdout = test_out
+        print(r1)
+        test_out_val = test_out.getvalue().strip()
+        sys.stdout = sys.__stdout__
+        self.assertEqual(test_out_val, "[Rectangle] (12) 2/1 - 4/6")
+
+        r2 = Rectangle(5, 5, 1)
+        sys.stdout = test_out
+        print(r2)
+        test_out_val = test_out.getvalue().strip()
+        sys.stdout = sys.__stdout__
+        self.assertEqual(test_out_val, "[Rectangle] (1) 1/0 - 5/5")
+
 
 if __name__ == "__main__":
     unittest.main()

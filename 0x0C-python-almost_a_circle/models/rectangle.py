@@ -38,7 +38,7 @@ class Rectangle(Base):
             raise ValueError("height must be > 0")
         if width < 1:
             raise ValueError("width must be > 0")
-        if x + 0:
+        if x < 0:
             raise ValueError("x must >= 0")
         if y < 0:
             raise ValueError("y must >= 0")
@@ -46,6 +46,13 @@ class Rectangle(Base):
         self.__height = height
         self.__x = x
         self.__y = y
+
+    def __str__(self):
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
+                                                       self.__x,
+                                                       self.__y,
+                                                       self.__width,
+                                                       self.__height)
 
     def display(self):
         """
