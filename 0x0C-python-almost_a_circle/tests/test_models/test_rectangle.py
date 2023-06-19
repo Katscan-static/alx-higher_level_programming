@@ -101,6 +101,21 @@ class TestRectangle(unittest.TestCase):
         expected_out = "##\n##\n##"
         self.assertEqual(actual_output, expected_out)
 
+    def Test_co_ord_display(self):
+        """
+            test co-ordinate display
+        """
+
+        r1 = Rectangle(2, 3, 2, 2)
+        sys.stdout = stored_out
+        r1.display()
+
+        sys.stdout = sys.__stdout__
+
+        actual_output1 = stored_out.getvalue().strip()
+
+        self.assertEqual(actual_output1, "\n\n  ##\n  ##\n  ##")
+
     def Test_str(self):
         """
             this tests the str function
