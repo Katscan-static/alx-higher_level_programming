@@ -101,6 +101,26 @@ class TestRectangle(unittest.TestCase):
         expected_out = "##\n##\n##"
         self.assertEqual(actual_output, expected_out)
 
+    def Test_update(self):
+        """
+            tests the update function
+        """
+
+        r1 = Rectangle(10, 10, 10, 10)
+        test_out = StringIO()
+        sys.stdout = test_out
+        print(r1)
+        test_out_val = test_out.getvalue().strip()
+        sys.stdout = sys.__stdout__
+        self.assertEqual(test_out_val, "[Rectangle] (1) 10/10 - 10/10")
+
+        r1.update(89)
+        sys.stdout = test_out
+        print(r1)
+        test_out_val = test_out.getvalue().strip()
+        sys.stdout = sys.__stdout__
+        self.assertEqual(test_out_val, "[Rectangle] (89) 10/10 - 10/10")
+
     def Test_co_ord_display(self):
         """
             test co-ordinate display
