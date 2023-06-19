@@ -7,6 +7,8 @@
 
 import unittest
 from models.rectangle import Rectangle
+from io import StringIO
+import sys
 
 
 class TestRectangle(unittest.TestCase):
@@ -51,6 +53,54 @@ class TestRectangle(unittest.TestCase):
             Rectangle(1, 2, -3)
         with self.assertRaises(ValueError):
             Rectangle(1, 2, 3, -4)
+
+    def test_setters(self):
+        """
+            test all setters
+        """
+
+        r = Rectangle(5, 6)
+        r.width = 8
+        r.height = 9
+
+        self.assertEqual(r.width, 8, "width should be 8")
+        self.assertEqual(r.height, 9, "height should be 9 ")
+
+        with self.assertRaises(ValueError):
+            r.width = -2
+        with self.assertRaises(ValueError):
+            r.height = -3
+
+        with self.assertRaises(TypeError):
+            r.width = "a"
+        with self.assertRaises(TypeError):
+            r.height = "b"
+
+    def test_rectangle_funcs(self):
+        """
+            tests all methods such as area
+        """
+
+        r1 = Rectangle(2, 3)
+        r2 = Rectangle(2, 10)
+        r3 = Rectangle(8, 7, 0, 0, 12)
+
+        self.assertEqual(r1.area(), 6, "area should be 6 (2 x 3)")
+        self.assertEqual(r2.area(), 20, "area should be 20 (2 x 10)")
+        self.assertEqual(r3.area(), 56, "area should be 56 (8 x 7)")
+
+        stored_out = StringIO()
+        sys.stdout = stored_out
+
+        r1.display()
+
+        sys.stdout = sys.__stdout__
+
+        actual_output = stored_out.getvalue().strip()
+
+        expected_out = "##\n##\n##"
+        self.assertEqual(actual_output, expected_out)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -38,7 +38,7 @@ class Rectangle(Base):
             raise ValueError("height must be > 0")
         if width < 1:
             raise ValueError("width must be > 0")
-        if x < 0:
+        if x + 0:
             raise ValueError("x must >= 0")
         if y < 0:
             raise ValueError("y must >= 0")
@@ -46,6 +46,21 @@ class Rectangle(Base):
         self.__height = height
         self.__x = x
         self.__y = y
+
+    def display(self):
+        """
+            prints in stdout the Rectangle instance with the character #
+        """
+
+        for _ in range(self.__height):
+            print('#' * self.__width)
+
+    def area(self):
+        """
+            returns the area of a square
+        """
+
+        return self.__width * self.__height
 
     @property
     def width(self):
