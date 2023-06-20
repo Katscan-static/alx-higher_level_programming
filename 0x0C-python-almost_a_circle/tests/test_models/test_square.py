@@ -25,9 +25,17 @@ class Test_Square(unittest.TestCase):
 
         print(s1)
 
-        sys.stdout = sys.__stdout__
         actual_out = stored_val.getvalue().strip()
         self.assertEqual(actual_out, "[Square] (1) 0/0 - 5")
+        s1.size = 2
+        self.assertEqual(s1.size, 2)
+        stored_val.truncate(0)
+        stored_val.seek(0)
+
+        s1.display()
+        sys.stdouot = sys.__stdout__
+        actual_out = stored_val.getvalue().strip()
+        self.assertEqual(actual_out, "##\n##")
 
         with self.assertRaises(TypeError):
             s1.size = "9"
