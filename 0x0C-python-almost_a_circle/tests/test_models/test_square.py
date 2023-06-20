@@ -17,7 +17,7 @@ class Test_Square(unittest.TestCase):
         """
         """
 
-        s1 = Square(5)
+        s1 = Square(5, 0, 0, 1)
         self.assertEqual(s1.area(), 25, "Area should be 25")
 
         stored_val = StringIO()
