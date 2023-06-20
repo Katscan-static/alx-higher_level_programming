@@ -57,3 +57,7 @@ class Test_Square(unittest.TestCase):
         sys.stdout = sys.__stdout__
         actual_out = stored_val.getvalue().strip()
         self.assertEqual(actual_out, "[Square] (10) 0/1 - 7")
+
+
+if __name__ == "__main__":
+    unittest.main()

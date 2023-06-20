@@ -51,4 +51,3 @@ class Base:
             json_data = cls.to_json_string(data)
             with open(name, 'w', encoding="utf-8") as file:
                 file.write(json_data)
-                
