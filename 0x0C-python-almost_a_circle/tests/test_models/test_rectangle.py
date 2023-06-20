@@ -96,7 +96,7 @@ class TestRectangle(unittest.TestCase):
         expected_out = "##\n##\n##"
         self.assertEqual(actual_output, expected_out)
 
-    def Test_update(self):
+    def test_update(self):
         """
             tests the update function
         """
@@ -106,39 +106,40 @@ class TestRectangle(unittest.TestCase):
         sys.stdout = test_out
         print(r1)
         test_out_val = test_out.getvalue().strip()
-        sys.stdout = sys.__stdout__
         self.assertEqual(test_out_val, "[Rectangle] (1) 10/10 - 10/10")
 
         r1.update(89)
-        sys.stdout = test_out
+        test_out.truncate(0)
+        test_out.seek(0)
         print(r1)
         test_out_val = test_out.getvalue().strip()
-        sys.stdout = sys.__stdout__
         self.assertEqual(test_out_val, "[Rectangle] (89) 10/10 - 10/10")
 
-        r1.update(x=1, height=2, y=3, width=4)
-        sys.stdout = test_out
+        r1.update(x=1, height=4, y=3, width=2)
+        test_out.truncate(0)
+        test_out.seek(0)
         print(r1)
         test_out_val = test_out.getvalue().strip()
         sys.stdout = sys.__stdout__
         self.assertEqual(test_out_val, "[Rectangle] (89) 1/3 - 2/4")
 
-    def Test_co_ord_display(self):
+    def test_co_ord_display(self):
         """
             test co-ordinate display
         """
 
         r1 = Rectangle(2, 3, 2, 2)
+        stored_out = StringIO()
         sys.stdout = stored_out
         r1.display()
 
         sys.stdout = sys.__stdout__
 
-        actual_output1 = stored_out.getvalue().strip()
+        actual_output1 = stored_out.getvalue()
 
-        self.assertEqual(actual_output1, "\n\n  ##\n  ##\n  ##")
+        self.assertEqual(actual_output1, "\n\n  ##\n  ##\n  ##\n")
 
-    def Test_str(self):
+    def test_str(self):
         """
             this tests the str function
         """
@@ -147,15 +148,34 @@ class TestRectangle(unittest.TestCase):
         sys.stdout = test_out
         print(r1)
         test_out_val = test_out.getvalue().strip()
-        sys.stdout = sys.__stdout__
         self.assertEqual(test_out_val, "[Rectangle] (12) 2/1 - 4/6")
 
-        r2 = Rectangle(5, 5, 1)
-        sys.stdout = test_out
+        r2 = Rectangle(5, 5, 1, 0, 1)
+        test_out.truncate(0)
+        test_out.seek(0)
         print(r2)
         test_out_val = test_out.getvalue().strip()
         sys.stdout = sys.__stdout__
         self.assertEqual(test_out_val, "[Rectangle] (1) 1/0 - 5/5")
+
+    def test_to_dict(self):
+        r1 = Rectangle(10, 2, 1, 9, 1)
+        captured_val = StringIO()
+        sys.stdout = captured_val
+        print(r1)
+        actual_out = captured_val.getvalue().strip()
+        self.assertEqual(actual_out,"[Rectangle] (1) 1/9 - 10/2")
+        captured_val.truncate(0)
+        captured_val.seek(0)
+        r1_dictionary = r1.to_dictionary()
+
+        dictionary = {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10}
+        self.assertEqual(r1_dictionary, dictionary)
+        print(type(r1_dictionary))
+        actual_out = captured_val.getvalue().strip()
+        self.assertEqual(actual_out, "<class 'dict'>")
+        
+
 
 if __name__ == "__main__":
     unittest.main()
