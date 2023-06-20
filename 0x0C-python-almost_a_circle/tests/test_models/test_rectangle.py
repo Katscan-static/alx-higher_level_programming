@@ -172,8 +172,12 @@ class TestRectangle(unittest.TestCase):
         dictionary = {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10}
         self.assertEqual(r1_dictionary, dictionary)
         print(type(r1_dictionary))
+        sys.stdout = sys.__stdout__
         actual_out = captured_val.getvalue().strip()
         self.assertEqual(actual_out, "<class 'dict'>")
+        r2 = Rectangle(1, 1, 0, 0, 2)
+        r2.update(**r1_dictionary)
+        self.assertNotEqual(r1, r2)
         
 
 
