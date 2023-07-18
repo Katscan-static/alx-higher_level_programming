@@ -1,5 +1,5 @@
 -- shows all tables of a database
-SET @database_name := 'mysql'
+SET @database_name := 'mysql';
 
 USE @database_name;
 
