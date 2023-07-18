@@ -1,7 +1,7 @@
 -- shows all tables of a database
-SET @database_name := 'mysql';
+USE mysql;
 
-USE @database_name;
-
-SELECT TABLE_NAME FROM information_schema.tables
-WHERE TABLE_SCHEMA = @database_name;
+SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+    AND TABLE_SCHEMA = DATABASE();
