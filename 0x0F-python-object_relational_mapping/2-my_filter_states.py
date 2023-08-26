@@ -21,7 +21,10 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
 
-    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(search_word)
+    query = ("SELECT * FROM states "
+             "WHERE BINARY name = '{}' "
+             " ORDER BY id ASC").format(search_word)
+    query = query.format(search_word)
     cursor.execute(query)
 
     rows = cursor.fetchall()
