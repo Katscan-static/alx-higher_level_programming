@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""module takes an argument and """
+"""module takes an argument and"""
 import sys
 import MySQLdb
 
@@ -21,8 +21,8 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
 
-    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
-    cursor.execute(query, (search_word,))
+    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(search_word)
+    cursor.execute(query)
 
     rows = cursor.fetchall()
 
