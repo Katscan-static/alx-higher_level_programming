@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 """ selects filtered data from states"""
-
-
 import sys
 import MySQLdb
 
