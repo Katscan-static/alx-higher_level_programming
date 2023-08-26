@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+""" this module connect to a db using MySQLdb"""
 import sys
 import MySQLdb
 
