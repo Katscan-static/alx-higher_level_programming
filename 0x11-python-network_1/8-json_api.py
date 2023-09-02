@@ -19,5 +19,5 @@ if __name__ == "__main__":
             print("[{}] {}".format(response_data['id'], response_data['name']))
         elif not response_data:
             print("No result")
-    except as e:
+    except Exception as e:
         print("Not a valid JSON")
